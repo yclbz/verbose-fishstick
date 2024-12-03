@@ -1,0 +1,53 @@
+讀取一行字串，計算字母出現的次數，若次數相同則以字母順序靠前的先輸出。
+
+import java.util.*;
+import static java.lang.System.*;
+public class main{
+  public static void main(String[] args) {
+    Scanner sc=new Scanner(System.in);
+    
+    //計算有多少列數
+    String temp=sc.nextLine();
+    int n=0; //n為將目前的數字轉換為整數並且累積至n中
+    for(int i=0;i<temp.length();i++){
+        if(temp.charAt(i)>=48 && temp.charAt(i)<=57) n=n*10+temp.charAt(i)-48;
+        //判斷當前字元是否是ASCII編碼介於48('0')和57('9') 的數字字元
+        //temp.charAt(i)-48：將字元的 ASCII 值轉換為對應的數字（例如'0'轉成0，'1'轉成 1...etc.）
+        //n=n*10：若是已處理過的數字，則將累積的數字位數向左移一位，且將新的數字加到累積結果n中
+    }
+
+    //初始化一個大小為26的整數陣列f，用來儲存每個英文字母出現的次數。
+    int f[]new int[26];
+    for(int i=0;i<26;i++){
+        f[i]=0;
+    //f[0]對應字母A，f[1]對應字母B，以此類推到f[25]對應字母Z。
+    }
+
+    //計算字母出現的次數
+    for(int i=0;i<n;i++){ //共有n行輸入
+        String st=sc.nextLine();
+        for(int j=0;j<temp.length();j++){
+            if(st.charAt(j)>=65 && st.charAt(j)<=90) f[st.charAt(j)-65]++;
+            //判斷字元是否是大寫字母（ASCII 編碼介於65('A')和90('Z')）。
+            //若是，則將對應的陣列（st.charAt(j) - 65）對應的值加 1
+
+            else if(st.charAt(j)>=97 && st.charAt(j)<=122) f[st.charAt(j)-97]++;
+            //判斷字元是否是小寫字母（ASCII 編碼介於97('a')和122('z')）。
+            //若是，則將對應的陣列的大寫（st.charAt(j) - 97）對應的值加 1
+        }
+    }
+
+    //尋找陣列 f，找出字母的最大出現次數並存入變數max。
+    int max=0;
+    for(int i=0;i<26;i++){
+        if(f[i]>max) max=f[i];
+    }
+
+    for(int i=max;i>0;i--){
+      for(int j=0;j<26;j++){
+          if(f[j]==i) System.out.println((char)(j+65)+" "+i);
+          //將陣列j轉化為對應的大寫字母（e.g.j=0對應A）
+    }
+    }
+    }
+};
