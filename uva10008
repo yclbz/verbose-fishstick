@@ -17,7 +17,7 @@ public class main{
     }
 
     //初始化一個大小為26的整數陣列f，用來儲存每個英文字母出現的次數。
-    int f[]new int[26];
+    int f[]=new int[26];
     for(int i=0;i<26;i++){
         f[i]=0;
     //f[0]對應字母A，f[1]對應字母B，以此類推到f[25]對應字母Z。
