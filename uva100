@@ -11,14 +11,14 @@ public class main{
   
   		int c=0;
   		for(int i=min;i<=max;i++){
-  			int temp=1;
+  			int temp=1; //所需要的迴圈次數
   			for(int j=i;j!=1;){
   				if(j%2==0)j=j/2;
   				else j=j*3+1;
   				temp++;
   			}
   	
-  		if(temp>c)c=temp;
+  		if(temp>c)c=temp; //判斷迴圈次數是否為最大值
   		}
   		System.out.println(a+" "+b+" "+c);
   
