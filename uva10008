@@ -26,7 +26,7 @@ public class main{
     //計算字母出現的次數
     for(int i=0;i<n;i++){ //共有n行輸入
         String st=sc.nextLine();
-        for(int j=0;j<temp.length();j++){
+        for(int j=0;j<st.length();j++){
             if(st.charAt(j)>=65 && st.charAt(j)<=90) f[st.charAt(j)-65]++;
             //判斷字元是否是大寫字母（ASCII 編碼介於65('A')和90('Z')）。
             //若是，則將對應的陣列（st.charAt(j) - 65）對應的值加 1
