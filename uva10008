@@ -47,6 +47,7 @@ public class main{
       for(int j=0;j<26;j++){
           if(f[j]==i) System.out.println((char)(j+65)+" "+i);
           //將陣列j轉化為對應的大寫字母（e.g.j=0對應A）
+          //內迴圈=找出陣列中次數=外層字母次數的字母並且輸出
     }
     }
     }
