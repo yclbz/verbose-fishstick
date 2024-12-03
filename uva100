@@ -9,7 +9,7 @@ public class main{
     	int min=Math.min(a,b);
     	int max=Math.max(a,b);
   
-  		int c=0;
+  		int c=0; //判斷所需迴圈最大值
   		for(int i=min;i<=max;i++){
   			int temp=1; //所需要的迴圈次數
   			for(int j=i;j!=1;){
