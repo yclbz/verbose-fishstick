@@ -1,4 +1,5 @@
 讀取一行字串，計算字母出現的次數，若次數相同則以字母順序靠前的先輸出。
+要使用charAt()
 
 import java.util.*;
 import static java.lang.System.*;
