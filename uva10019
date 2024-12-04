@@ -1,0 +1,39 @@
+分別實現將數字從10進位和16進位轉換為2進位，並計算二進位表示中'1'的個數。
+import java.util.*;
+import static java.lang.System.*;
+public class main{
+  public static void main(String[] args) {
+    Scanner sc=new Scanner(System.in);
+    
+    int cases =sc.nextInt();
+    while((cases--)>0){
+    	int n = sc.nextInt();
+    	System.out.println(base10(n)+" "+base16(n));
+    
+    }
+    
+   } 
+  public static int base10(int n){
+  		int count=0;
+  		while(n>0){
+  			if(n%2==1)count++; //判斷最低為是否為1
+  			n/=2; //將數字往右移
+  		}
+  		return count;
+  }
+   
+  public static int base16(int n){
+  		int count=0;
+  		while(n>0){
+  			int temp=n%10; //取出最低位數字 
+  			n/=10;
+  				while(temp>0){
+  					if(temp%2==1)count++; //判斷最低位是否為1
+  						temp/=2; //將數字往右移
+  		}
+  		
+  }  
+    return count;
+    
+  }
+};
