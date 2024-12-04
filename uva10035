@@ -1,0 +1,52 @@
+import java.util.*;
+import static java.lang.System.*;
+public class main{
+  public static void main(String[] args) {
+    Scanner sc=new Scanner(System.in);
+    
+    while(true){
+    	StringBuilder st1=new StringBuilder(sc.next());
+    	StringBuilder st2=new StringBuilder(sc.next());
+      //利用 StringBuilder 將數字存儲為可變字串形式。
+
+   	if(st1.charAt(0)=='0' && st2.charAt(0)=='0')break; //若輸入為零則終止
+   	
+    st1.reverse();
+    st2.reverse();
+    //將兩個數字字串反轉（例如 123 → 321），以便從最低位開始處理加法運算，符合實際的手動計算順序。
+    
+    int max=Math.max(st1.length(),st2.length()); //兩數字字串中較長的長度。
+    int min=Math.min(st1.length(),st2.length()); //兩數字字串中較短的長度。
+    
+    int carry=0; //上一位數字加法後產生的進位值。
+    int count=0; //累計進位的次數。
+    
+    for(int i=0;i<max;i++){
+    	if(i<min){
+    	int temp=st1.charAt(i)-48+st2.charAt(i)-48+carry; //計算兩數字對應位上的加法
+    	carry=temp/10; //更新進位
+    	}else{
+    		if(st1.length()==max){
+    			int	temp=st1.charAt(i)-48+carry;
+    			carry=temp/10;
+    		}
+    		else{
+    			int temp=st2.charAt(i)-48+carry;
+    			carry=temp/10;
+    		}
+    	}
+      if(carry!=0)count++;
+    }
+   	if(count == 0){
+    System.out.println("No carry operation.");
+		}else if(count == 1){
+    System.out.println(count + " carry operation.");
+		}else{
+    System.out.println(count + " carry operations.");
+}
+
+    }
+    
+    
+  }
+};
