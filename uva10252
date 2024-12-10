@@ -1,0 +1,44 @@
+import java.util.*; 
+import static java.lang.System.*; 
+
+public class main {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    
+    // 不斷讀取輸入，直到沒有更多的輸入行
+    while (sc.hasNextLine()) {
+      String st1 = sc.nextLine(); // 讀入第一個字串
+      String st2 = sc.nextLine(); // 讀入第二個字串
+  
+      int table1[] = new int[26]; // 26 個小寫字母的次數表
+      int table2[] = new int[26]; // 26 個小寫字母的次數表
+      
+      Arrays.fill(table1, 0); // 初始化為 0
+      Arrays.fill(table2, 0); // 初始化為 0
+      
+      // 統計 st1 中每個字符的次數
+      for (int i = 0; i < st1.length(); i++) {
+        int temp = st1.charAt(i); // 取得 st1 的第 i 個字符的 ASCII 值
+        if (temp >= 97 && temp <= 122) // 確認是否是小寫字母 (a-z)
+          table1[temp - 97]++; // 將字母 'a'~'z' 對應到 0~25
+      }
+      
+      // 統計 st2 中每個字符的次數
+      for (int i = 0; i < st2.length(); i++) {
+        int temp = st2.charAt(i); // 取得 st2 的第 i 個字符的 ASCII 值
+        if (temp >= 97 && temp <= 122) // 確認是否是小寫字母 (a-z)
+          table2[temp - 97]++; // 將字母 'a'~'z' 對應到 0~25
+      }	
+      
+      // 對每個字母 (a-z) 進行比對
+      for (int i = 0; i < 26; i++) {
+        int min = Math.min(table1[i], table2[i]); // 取 table1 和 table2 中該字母的最小出現次數
+        for (int j = 0; j < min; j++) {
+          System.out.print((char)(i + 97)); // 將 i 轉換回字母 'a'~'z'
+        }
+      }
+      
+      System.out.println(); // 換行
+    }
+  }
+}
